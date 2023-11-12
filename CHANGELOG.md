@@ -1,9 +1,5 @@
-# Change Log
+# Changelog
 
-All notable changes to the "fusionautocomplete" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+1.0.0
+- Added autocomplete for class names
+- Added autocomplete for properties
