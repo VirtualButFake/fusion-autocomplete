@@ -2,9 +2,11 @@
 	"name": "fusionautocomplete",
 	"displayName": "Fusion Autocomplete",
 	"description": "An extension that offers autocomplete for properties on ROBLOX UI frameworks like Fusion and Roact.",
-	"version": "0.0.1",
+	"version": "1.0.2",
+	"publisher": "Virtual",
+	"repository": "https://github.com/VirtualButFake/fusion_autocomplete",
 	"engines": {
-		"vscode": "^1.8.0"
+		"vscode": "^1.5.0"
 	},
 	"categories": [
 		"Other"
@@ -37,7 +39,7 @@
 		"@types/mocha": "^10.0.3",
 		"@types/node": "18.x",
 		"@types/node-fetch": "^2.6.9",
-		"@types/vscode": "^1.84.0",
+		"@types/vscode": "^1.5.0",
 		"@typescript-eslint/eslint-plugin": "^6.9.0",
 		"@typescript-eslint/parser": "^6.9.0",
 		"@vscode/test-electron": "^2.3.6",

@@ -7,4 +7,4 @@ Listens to calls to `new`/`New`.
 ![Class name autocomplete](https://cdn.tijne.net/k9XfiRn2njor/direct)
 ![Property autocomplete](https://cdn.tijne.net/niWYyoDntAFm/direct)
 
-Visual Studio marketplace link: COMING SOON (tomorrow)
+[Visual Studio marketplace link](https://marketplace.visualstudio.com/items?itemName=Virtual.fusionautocomplete)
