@@ -10,3 +10,6 @@
 
 ## 1.0.2
 - Fix bug where autocomplete would add a value onto a key that already had a value (i.e. adding ``= UDim2.new()`` onto ``Si = UDim2.new()`` when autocompleting Size)
+
+## 1.0.3
+- Setup publishing workflow & add Visual Studio marketplace link to README.md

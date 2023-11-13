@@ -2,7 +2,7 @@
 	"name": "fusionautocomplete",
 	"displayName": "Fusion Autocomplete",
 	"description": "An extension that offers autocomplete for properties on ROBLOX UI frameworks like Fusion and Roact.",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"publisher": "Virtual",
 	"repository": "https://github.com/VirtualButFake/fusion_autocomplete",
 	"engines": {
