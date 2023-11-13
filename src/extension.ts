@@ -2,13 +2,13 @@ import * as vscode from "vscode";
 import fetch from "node-fetch";
 
 const isKeyRegex = new RegExp(
-	/[{,]\s*(([A-Za-z]+)\s*(?!=\s*([A-Za-z0-9_]+)))$/gi
+	/[{,;]\s*(([A-Za-z]+)\s*(?!=\s*([A-Za-z0-9_]+)))$/gi
 );
 const findClassNameRegex = new RegExp(
-	/new\(?["'`]([A-Za-z0-9_]*)["'`][\s)(]*[{][^[{]*$/i
+	/new[(\s]?["'`]([A-Za-z0-9_]*)["'`][\s)(]*[{][^[{]*$/i
 );
 
-const isWritingClassRegex = new RegExp(/new\(?["'`]([A-Za-z0-9_]*)$/i);
+const isWritingClassRegex = new RegExp(/new[(\s]?["'`]([A-Za-z0-9_]*)$/i);
 
 const classProperties: { [key: string]: Member[] } = {};
 
