@@ -10,6 +10,8 @@ const findClassNameRegex = new RegExp(
 
 const isWritingClassRegex = new RegExp(/new[(\s]?["'`]([A-Za-z0-9_]*)$/i);
 
+const hasValueRegex = new RegExp(/^[\s]*=/i);
+
 const classProperties: { [key: string]: Member[] } = {};
 
 // thanks copilot
@@ -120,6 +122,7 @@ export async function activate(context: vscode.ExtensionContext) {
 					lines = lines.slice(0, position.line + 1);
 
 					const combinedLines = lines.join("\n");
+					const text = document.getText();
 
 					// run regex on the available text, see if we're currently in a table
 					const isKeyMatch = combinedLines.match(isKeyRegex);
@@ -146,11 +149,20 @@ export async function activate(context: vscode.ExtensionContext) {
 										property.Tags ? property.Tags.join(", ") : "None"
 									}`
 								);
-								item.insertText = new vscode.SnippetString(
-									`${property.Name} = ${
-										autocompleteText[property.ValueType.Name] ?? ""
-									}`
-								);
+
+								const hasValue = text
+									.substring(combinedLines.length, text.length)
+									.match(hasValueRegex);
+
+								if (hasValue) {
+									item.insertText = new vscode.SnippetString(property.Name);
+								} else {
+									item.insertText = new vscode.SnippetString(
+										`${property.Name} = ${
+											autocompleteText[property.ValueType.Name] ?? ""
+										}`
+									);
+								}
 
 								return item;
 							});
