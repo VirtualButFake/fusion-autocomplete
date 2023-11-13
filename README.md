@@ -1,4 +1,6 @@
-# Fusion Autocomplete
+# Fusion Autocomplete 
+
+Credits to [this post](https://devforum.roblox.com/t/autocomplete-for-listing-object-properties-in-tables-for-roact-and-fusion/2696843/4?u=6lack_amir21) for the idea
 
 REALLY simple autocomplete for class names & properties for Fusion.
 Listens to calls to `new`/`New`.
