@@ -1,16 +1,18 @@
 import * as vscode from "vscode";
 import fetch from "node-fetch";
 
+const isWritingClassRegex = new RegExp(/(\w+)[(\s]?["'`]([A-Za-z0-9_]*)$/i);
+const hasValueRegex = new RegExp(/^[\s]*=/i);
 const isKeyRegex = new RegExp(
 	/[{,;]\s*(([A-Za-z]+)\s*(?!=\s*([A-Za-z0-9_]+)))$/gi
 );
 const findClassNameRegex = new RegExp(
-	/new[(\s]?["'`]([A-Za-z0-9_]*)["'`][\s)(]*[{][^[{]*$/i
+	/(\w+)[(\s]?["'`]([A-Za-z0-9_]*)["'`][\s)(]*[{][^[{]*$/i
 );
 
-const isWritingClassRegex = new RegExp(/new[(\s]?["'`]([A-Za-z0-9_]*)$/i);
-
-const hasValueRegex = new RegExp(/^[\s]*=/i);
+let newAliases: [string?] = [];
+let fusionAliases: [string?] = [];
+let groupingMode: string | undefined;
 
 const classProperties: { [key: string]: Member[] } = {};
 
@@ -91,7 +93,19 @@ async function TransferClassPropertiesToList(
 	}
 }
 
+async function refreshRegex() {
+	// grab settings from vscode
+	const config = vscode.workspace.getConfiguration("fusionautocomplete");
+
+	// grab aliases from settings
+	newAliases = config.get("newAliases") ?? [];
+	fusionAliases = config.get("fusionAliases") ?? [];
+	groupingMode = config.get("functionGroupMode") ?? "none";
+}
+
 export async function activate(context: vscode.ExtensionContext) {
+	await refreshRegex();
+
 	// build class definitions using api dump
 	const body = await fetch(
 		"https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json"
@@ -112,8 +126,6 @@ export async function activate(context: vscode.ExtensionContext) {
 				provideCompletionItems(
 					document: vscode.TextDocument,
 					position: vscode.Position,
-					token: vscode.CancellationToken,
-					context: vscode.CompletionContext
 				) {
 					let lines = document.getText().split("\n");
 					const line = lines[position.line];
@@ -129,6 +141,13 @@ export async function activate(context: vscode.ExtensionContext) {
 
 					if (isKeyMatch) {
 						const classNameMatch = combinedLines.match(findClassNameRegex);
+
+						// check if this is a valid new alias
+						const isAlias = newAliases.includes(isKeyMatch[2]);
+
+						if (!isAlias) {
+							return [];
+						}
 
 						if (classNameMatch) {
 							const className = classNameMatch[1];
@@ -175,6 +194,14 @@ export async function activate(context: vscode.ExtensionContext) {
 					const isWritingClassMatch = combinedLines.match(isWritingClassRegex);
 
 					if (isWritingClassMatch) {
+						// check whether the found keyword is a new alias
+						const isAlias = newAliases.includes(isWritingClassMatch[1]);
+						console.log(isAlias, fusionAliases);
+
+						if (!isAlias) {
+							return [];
+						}
+
 						// autocomplete class name
 						const classKeys = Object.keys(classProperties);
 
