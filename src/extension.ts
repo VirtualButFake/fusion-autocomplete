@@ -93,7 +93,7 @@ async function TransferClassPropertiesToList(
 	}
 }
 
-async function refreshRegex() {
+async function refreshSettings() {
 	// grab settings from vscode
 	const config = vscode.workspace.getConfiguration("fusionautocomplete");
 
@@ -104,7 +104,7 @@ async function refreshRegex() {
 }
 
 export async function activate(context: vscode.ExtensionContext) {
-	await refreshRegex();
+	await refreshSettings();
 
 	// build class definitions using api dump
 	const body = await fetch(
@@ -118,6 +118,8 @@ export async function activate(context: vscode.ExtensionContext) {
 		await TransferClassPropertiesToList(classDef, props);
 		classProperties[classDef.Name] = props;
 	}
+
+    vscode.workspace.onDidChangeConfiguration(refreshSettings);
 
 	context.subscriptions.push(
 		vscode.languages.registerCompletionItemProvider(

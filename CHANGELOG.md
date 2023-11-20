@@ -16,3 +16,7 @@
 
 ## 1.1.0
 - Allows configuration to be used to provide a list of strings that'll be seen as calls to `Fusion.New`.
+
+## 1.1.1
+- More descriptive function naming
+- Made settings refresh on configuration change
