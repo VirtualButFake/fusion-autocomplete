@@ -141,9 +141,14 @@ export class PropertyCompletionProvider
 			if (hasValue) {
 				item.insertText = new vscode.SnippetString(property.Name);
 			} else {
+				const postLineText = `${
+					autocompleteText[property.ValueType.Name] ?? ""
+				}${vscode.workspace
+					.getConfiguration("fusionautocomplete")
+					.get("postLineCharacters")}`;
 				item.insertText = new vscode.SnippetString(
 					`${property.Name} = ${
-						autocompleteText[property.ValueType.Name] ?? ""
+						autocompleteText[property.ValueType.Name] ? postLineText : ""
 					}`
 				);
 			}

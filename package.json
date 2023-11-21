@@ -24,7 +24,7 @@
 	"contributes": {
 		"configuration": [
 			{
-				"title": "Autocomplete",
+				"title": "Classname & Property autocomplete",
 				"properties": {
 					"fusionautocomplete.newAliases": {
 						"markdownDescription": "A list of strings that will be used to detect calls to Fusion.New. This is case-insensitive.",
@@ -36,7 +36,12 @@
 							"new"
 						],
 						"pattern": "^[a-zA-Z0-9_]*$"
-					}
+					},
+                    "fusionautocomplete.postLineCharacters": {
+                        "markdownDescription": "Adds these characters to the end of the line when autocompleting a property with pre-set constructor data.",
+                        "type": "string",
+                        "default": ","
+                    }
 				}
 			},
 			{
