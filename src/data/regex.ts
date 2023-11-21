@@ -1,7 +1,9 @@
 export default {
-	className: new RegExp(/(\w+)[(\s]?["'`]([A-Za-z0-9_]*)["'`][\s)(]*[{\s]*$/i),
+	className: new RegExp(/(\w+)[(\s]?["'`]([A-Za-z0-9_]*)["'`][\s)(]*{[^{]*$/i),
 	isKey: new RegExp(/[{,;]\s*(([A-Za-z]+)\s*(?!=\s*([A-Za-z0-9_]+)))$/gi),
-    isSpecialKey: new RegExp(/[{,;]\s*((\[[A-Za-z]+)\s*(?!=\s*([A-Za-z0-9_]+)))$/gi),
+	isSpecialKey: new RegExp(
+		/[{,;]\s*((\[[A-Za-z]+)\s*(?!=\s*([A-Za-z0-9_]+)))$/gi
+	),
 	hasValue: new RegExp(/^[\s]*=/i),
 	getFunctionName: new RegExp(/(\w+)[(\s]*?["'`]([A-Za-z0-9_]*)$/i),
 	bracketField: new RegExp(/\[\w+$/),

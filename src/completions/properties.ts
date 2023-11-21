@@ -50,33 +50,39 @@ export class PropertyCompletionProvider
 		);
 
 		if (isKeyMatch) {
-			// find first unclosed bracket
-			const lastBracketIndex = combinedLines.lastIndexOf("}");
-			let bracketIndex =
-				lastBracketIndex !== -1 ? lastBracketIndex : combinedLines.length;
-			let bracketCount = 1;
-			let classNameMatch;
+			/*
+            We need to handle cases like this:
+            new("x"){
+                {
+                    // it should NOT autocomplete in here
+                }
+                // it SHOULD autocomplete in here
+            }
+            */
 
-			while (bracketCount > 0 && combinedLines[bracketIndex - 1]) {
-				bracketIndex--;
-				const char = combinedLines[bracketIndex];
+			let bracketCount = 0;
+			let classNameMatch;
+			for (let i = combinedLines.length; i > 0; i--) {
+				const char = combinedLines[i];
+				console.log("tierating");
+
 				if (char === "{") {
-					// try matching with classnamematch
+					bracketCount++;
+
+					// try to match classname
 					classNameMatch = combinedLines
-						.substring(0, bracketIndex)
+						.substring(0, i + 1)
 						.match(regex.className);
 
 					if (classNameMatch) {
 						break;
 					}
-
-					bracketCount++;
 				} else if (char === "}") {
 					bracketCount--;
 				}
 			}
 
-			if (classNameMatch) {
+			if (classNameMatch && bracketCount === 1) {
 				const aliases: string[] = (
 					(vscode.workspace
 						.getConfiguration("fusionautocomplete")

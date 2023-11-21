@@ -37,11 +37,11 @@
 						],
 						"pattern": "^[a-zA-Z0-9_]*$"
 					},
-                    "fusionautocomplete.postLineCharacters": {
-                        "markdownDescription": "Adds these characters to the end of the line when autocompleting a property with pre-set constructor data.",
-                        "type": "string",
-                        "default": ","
-                    }
+					"fusionautocomplete.postLineCharacters": {
+						"markdownDescription": "Adds these characters to the end of the line when autocompleting a property with pre-set constructor data.",
+						"type": "string",
+						"default": ","
+					}
 				}
 			},
 			{

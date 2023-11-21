@@ -36,3 +36,4 @@
 
 # 1.2.1
 - Added setting for adding characters at the end of a completion with pre-set values (useful for adding i.e. a comma after a property)
+- Fix bug where brackets before a ``New()`` call would not autocomplete
