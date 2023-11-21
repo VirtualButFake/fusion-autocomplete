@@ -2,7 +2,7 @@
 	"name": "fusionautocomplete",
 	"displayName": "Fusion Autocomplete",
 	"description": "An extension that offers autocomplete for properties on ROBLOX UI frameworks like Fusion and Roact.",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"publisher": "Virtual",
 	"repository": "https://github.com/VirtualButFake/fusion_autocomplete",
 	"engines": {
@@ -22,22 +22,73 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"configuration": {
-			"title": "Fusion Autocomplete",
-			"properties": {
-				"fusionautocomplete.newAliases": {
-					"markdownDescription": "A list of strings that will be used to detect calls to Fusion.New. This is case-insensitive.",
-					"type": "array",
-					"items": {
-						"type": "string"
+		"configuration": [
+			{
+				"title": "Autocomplete",
+				"properties": {
+					"fusionautocomplete.newAliases": {
+						"markdownDescription": "A list of strings that will be used to detect calls to Fusion.New. This is case-insensitive.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"default": [
+							"new"
+						],
+						"pattern": "^[a-zA-Z0-9_]*$"
+					}
+				}
+			},
+			{
+				"title": "Function Autocomplete",
+				"properties": {
+					"fusionautocomplete.functionAutoComplete": {
+						"markdownDescription": "Whether to autocomplete Fusion functions if a fusion variable is detected.",
+						"type": "boolean",
+						"default": true
 					},
-					"default": [
-						"new"
-					],
-					"pattern": "^[a-zA-Z0-9_]*$"
+					"fusionautocomplete.fusionAliases": {
+						"markdownDescription": "A list of strings that will be used to detect properties of Fusion to autocomplete the functions. This is case-insensitive.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"default": [
+							"fusion"
+						],
+						"pattern": "^[a-zA-Z0-9_]*$"
+					},
+					"fusionautocomplete.groupingMode": {
+						"markdownDescription": "The mode to use for grouping properties. This can be either `alphabetical` or `category`. `category` groups based on the category of the function.",
+						"type": "string",
+						"default": "alphabetical",
+						"enum": [
+							"alphabetical",
+							"category"
+						]
+					},
+					"fusionautocomplete.casingMode": {
+						"markdownDescription": "The casing mode to use for properties. This can be either `camelCase`, `snake_case` or `PascalCase`.",
+						"type": "string",
+						"default": "camelCase",
+						"enum": [
+							"camelCase",
+							"snake_case",
+							"PascalCase"
+						]
+					},
+					"fusionautocomplete.fusionVersion": {
+						"markdownDescription": "The version of Fusion to use for autocomplete.",
+						"type": "string",
+						"default": "0.2",
+						"enum": [
+							"0.2",
+							"0.3"
+						]
+					}
 				}
 			}
-		}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -59,6 +110,7 @@
 		"typescript": "^5.2.2"
 	},
 	"dependencies": {
+		"js-convert-case": "^4.2.0",
 		"node-fetch": "^2.7.0"
 	}
 }

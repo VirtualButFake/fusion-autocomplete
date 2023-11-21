@@ -20,3 +20,16 @@
 ## 1.1.1
 - More descriptive function naming
 - Made settings refresh on configuration change
+
+# 1.2.0
+- Added autocomplete & auto-import for Fusion functions and parameters on certain functions (Out, OnChange, OnEvent). This looks for a `Fusion` (customizable) variable and automatically imports these functions if they are not already imported. I tried to make autocompletion stick to the way existing extensions do it (so no automatic brackets, etc) because this extension only takes care of the first time they are used. 
+- You can customize the casing options for these variables in the options (default: camelCase)
+- You can customize the grouping of these variables in the options (either alphabetically or categorically)
+- Currently only Fusion 0.2 is supported, but when 0.3 gets released support will be added.
+
+
+- Fix types in code
+- Cleaned up & refactored code a lot
+- Fixed bug where properties would not be autocompleted if a property that took a table was used before it (i.e. Children).
+- Fixed a bug where autocompletion would still occur if the user was typing directly after a table.
+- Fixed a bug where autocompletion would not occur if it was done after a table inside a ``New()`` call
