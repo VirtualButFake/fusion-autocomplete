@@ -64,8 +64,6 @@ export class PropertyCompletionProvider
 			let classNameMatch;
 			for (let i = combinedLines.length; i > 0; i--) {
 				const char = combinedLines[i];
-				console.log("tierating");
-
 				if (char === "{") {
 					bracketCount++;
 
