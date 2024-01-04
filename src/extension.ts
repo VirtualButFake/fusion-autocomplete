@@ -6,10 +6,7 @@ import { FunctionParameterCompletionProvider } from "./completions/functionParam
 
 import classDefinitions from "./data/classDefinitions";
 
-const fileSelector = {
-	scheme: "file",
-	language: "lua",
-};
+const fileSelector = "luau";
 
 export async function activate(context: vscode.ExtensionContext) {
 	const classDefs = await classDefinitions();
@@ -39,7 +36,7 @@ export async function activate(context: vscode.ExtensionContext) {
 			'"',
 			"'",
 			"`",
-            "."
+			"."
 		)
 	);
 }

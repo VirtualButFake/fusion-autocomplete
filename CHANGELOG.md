@@ -33,3 +33,7 @@
 - Fixed bug where properties would not be autocompleted if a property that took a table was used before it (i.e. Children).
 - Fixed a bug where autocompletion would still occur if the user was typing directly after a table.
 - Fixed a bug where autocompletion would not occur if it was done after a table inside a ``New()`` call
+
+# 1.2.1
+- Added setting for adding characters at the end of a completion with pre-set values (useful for adding i.e. a comma after a property)
+- Fix bug where brackets before a ``New()`` call would not autocomplete
