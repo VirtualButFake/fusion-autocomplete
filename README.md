@@ -32,3 +32,7 @@ You may also customize casing modes for imports, the Fusion version to use, grou
 ## Contributing
 
 Contributions are always welcomed. Code should follow the Prettier and ESLint rules for this repository. To contribute, fork this repository, make your changes, and create a pull request. Please make sure to test your changes before creating a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/virtualbutfake/fusion-autocomplete/blob/master/LICENSE.md) file for details.
