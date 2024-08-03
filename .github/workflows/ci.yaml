@@ -21,7 +21,7 @@ jobs:
     - name: Install
       run: npm install
     - name: ESLint
-      run: eslint ./src/**/*.ts --max-warnings=0
+      run: npx eslint ./src/**/*.ts --max-warnings=0
     - name: TypeScript
       run: tsc --noEmit              
     - name: Prettier Check
