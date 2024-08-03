@@ -23,8 +23,8 @@ jobs:
         node-version: '16'
     - name: Install
       run: npm install
-    - name: ESLint
-      run: npx run ci:lint
+    - name: Lint
+      run: npm run ci:lint
 
                
    
