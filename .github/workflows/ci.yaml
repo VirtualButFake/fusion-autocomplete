@@ -10,7 +10,8 @@ on:
     - main
 
 jobs:
-  lint: 
+  lint:
+    name: Lint"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -22,6 +23,7 @@ jobs:
     - name: Lint
       run: npm run lint
   style:
+    name: Style
     runs-on: ubuntu-latest 
     steps:
     - uses: actions/checkout@v3
