@@ -2,6 +2,7 @@
 
 # Fusion Autocomplete
 
+[![CI](https://github.com/virtualbutfake/fusion-autocomplete/actions/workflows/ci.yml/badge.svg)](https://github.com/virtualbutfake/create-roblox/actions)
 [![License](https://img.shields.io/github/license/virtualbutfake/fusion-autocomplete)](https://github.com/VirtualButFake/fusion-autocomplete/blob/master/LICENSE.md)
 [![Version](https://img.shields.io/visual-studio-marketplace/v/Virtual.fusionautocomplete)](https://marketplace.visualstudio.com/items?itemName=Virtual.fusionautocomplete)
 [![Installs](https://img.shields.io/visual-studio-marketplace/d/Virtual.fusionautocomplete)](https://marketplace.visualstudio.com/items?itemName=Virtual.fusionautocomplete)
