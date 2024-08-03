@@ -1,10 +1,26 @@
+<div align="center">
+
 # Fusion Autocomplete
 
-Credits to [this post](https://devforum.roblox.com/t/autocomplete-for-listing-object-properties-in-tables-for-roact-and-fusion/2696843/4?u=6lack_amir21) for the idea
+[![License](https://img.shields.io/github/license/virtualbutfake/fusion-autocomplete)](https://github.com/VirtualButFake/fusion-autocomplete/blob/master/LICENSE.md)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/Virtual.fusionautocomplete)](https://marketplace.visualstudio.com/items?itemName=Virtual.fusionautocomplete)
+[![Installs](https://img.shields.io/visual-studio-marketplace/d/Virtual.fusionautocomplete)](https://marketplace.visualstudio.com/items?itemName=Virtual.fusionautocomplete)
+</div>
 
-REALLY simple autocomplete for class names, properties, functions & certain function parameters for Fusion.
-![Class name autocomplete](https://cdn.tijne.net/k9XfiRn2njor/direct)
-![Property autocomplete](https://cdn.tijne.net/niWYyoDntAFm/direct)
-![Function & parameter autocomplete](https://cdn.tijne.net/V9Cj35y7OC8G/direct)
+## 
 
-[Visual Studio marketplace link](https://marketplace.visualstudio.com/items?itemName=Virtual.fusionautocomplete)
+A Visual Studio Code extension that provides autocomplete for certain Fusion syntax.
+This tool is extremely easy to set up, only requiring you to set up aliases for your Fusion variable names and functions.
+
+## Features
+
+- Autocomplete for class names, supporting all string formats ("", '', `` and \[[\]]), and calls both with and without brackets.
+- Property autocomplete (dynamically updates, supports all non-`ReadOnly` properties)
+- Function autocomplete, automatically importing the required functions and grouping them in the code, in order to keep import order consistent.
+- Automatic detection of SpecialKey functions, autocompleting these functions inside of your Fusion table.
+- Automatic detection of function parameters, automatically completing for example event names inside `OnEvent`, and properties inside `OnChange`.
+
+This plugin relies on RegEx to detect Fusion syntax, and as such, it may not always be perfect. If you find any issues, please create an issue in this repository.
+
+## Contributing
+Contributions are always welcomed.

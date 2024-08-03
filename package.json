@@ -1,121 +1,124 @@
 {
-	"name": "fusionautocomplete",
-	"displayName": "Fusion Autocomplete",
-	"description": "An extension that offers autocomplete for properties on ROBLOX UI frameworks like Fusion and Roact.",
-	"version": "1.2.0",
-	"publisher": "Virtual",
-	"repository": "https://github.com/VirtualButFake/fusion_autocomplete",
-	"engines": {
-		"vscode": "^1.5.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"keywords": [
-		"roblox",
-		"fusion",
-		"roact"
-	],
-	"activationEvents": [
-		"onLanguage:luau",
-		"onLanguage:lua"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"configuration": [
-			{
-				"title": "Classname & Property autocomplete",
-				"properties": {
-					"fusionautocomplete.newAliases": {
-						"markdownDescription": "A list of strings that will be used to detect calls to Fusion.New. This is case-insensitive.",
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"default": [
-							"new"
-						],
-						"pattern": "^[a-zA-Z0-9_]*$"
-					},
-					"fusionautocomplete.postLineCharacters": {
-						"markdownDescription": "Adds these characters to the end of the line when autocompleting a property with pre-set constructor data.",
-						"type": "string",
-						"default": ","
-					}
-				}
-			},
-			{
-				"title": "Function Autocomplete",
-				"properties": {
-					"fusionautocomplete.functionAutoComplete": {
-						"markdownDescription": "Whether to autocomplete Fusion functions if a fusion variable is detected.",
-						"type": "boolean",
-						"default": true
-					},
-					"fusionautocomplete.fusionAliases": {
-						"markdownDescription": "A list of strings that will be used to detect properties of Fusion to autocomplete the functions. This is case-insensitive.",
-						"type": "array",
-						"items": {
-							"type": "string"
-						},
-						"default": [
-							"fusion"
-						],
-						"pattern": "^[a-zA-Z0-9_]*$"
-					},
-					"fusionautocomplete.groupingMode": {
-						"markdownDescription": "The mode to use for grouping properties. This can be either `alphabetical` or `category`. `category` groups based on the category of the function.",
-						"type": "string",
-						"default": "alphabetical",
-						"enum": [
-							"alphabetical",
-							"category"
-						]
-					},
-					"fusionautocomplete.casingMode": {
-						"markdownDescription": "The casing mode to use for properties. This can be either `camelCase`, `snake_case` or `PascalCase`.",
-						"type": "string",
-						"default": "camelCase",
-						"enum": [
-							"camelCase",
-							"snake_case",
-							"PascalCase"
-						]
-					},
-					"fusionautocomplete.fusionVersion": {
-						"markdownDescription": "The version of Fusion to use for autocomplete.",
-						"type": "string",
-						"default": "0.2",
-						"enum": [
-							"0.2",
-							"0.3"
-						]
-					}
-				}
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"lint": "eslint src --ext ts"
-	},
-	"devDependencies": {
-		"@types/mocha": "^10.0.3",
-		"@types/node": "18.x",
-		"@types/node-fetch": "^2.6.9",
-		"@types/vscode": "^1.5.0",
-		"@typescript-eslint/eslint-plugin": "^6.9.0",
-		"@typescript-eslint/parser": "^6.9.0",
-		"@vscode/test-electron": "^2.3.6",
-		"eslint": "^8.52.0",
-		"glob": "^10.3.10",
-		"mocha": "^10.2.0",
-		"typescript": "^5.2.2"
-	},
-	"dependencies": {
-		"js-convert-case": "^4.2.0",
-		"node-fetch": "^2.7.0"
-	}
+    "name": "fusionautocomplete",
+    "displayName": "Fusion Autocomplete",
+    "description": "An extension that offers autocomplete for properties on ROBLOX UI frameworks like Fusion and Roact.",
+    "version": "1.2.2",
+    "publisher": "Virtual",
+    "repository": "https://github.com/VirtualButFake/fusion_autocomplete",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "license": "MIT",
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "roblox",
+        "fusion",
+        "roact"
+    ],
+    "activationEvents": [
+        "onLanguage:luau",
+        "onLanguage:lua"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": [
+            {
+                "title": "Classname & Property autocomplete",
+                "properties": {
+                    "fusionautocomplete.newAliases": {
+                        "markdownDescription": "A list of strings that will be used to detect calls to Fusion.New. This is case-insensitive.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [
+                            "new"
+                        ],
+                        "pattern": "^[a-zA-Z0-9_]*$"
+                    },
+                    "fusionautocomplete.postLineCharacters": {
+                        "markdownDescription": "Adds these characters to the end of the line when autocompleting a property with pre-set constructor data.",
+                        "type": "string",
+                        "default": ","
+                    }
+                }
+            },
+            {
+                "title": "Function Autocomplete",
+                "properties": {
+                    "fusionautocomplete.functionAutoComplete": {
+                        "markdownDescription": "Whether to autocomplete Fusion functions if a fusion variable is detected.",
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "fusionautocomplete.fusionAliases": {
+                        "markdownDescription": "A list of strings that will be used to detect properties of Fusion to autocomplete the functions. This is case-insensitive.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [
+                            "fusion"
+                        ],
+                        "pattern": "^[a-zA-Z0-9_]*$"
+                    },
+                    "fusionautocomplete.groupingMode": {
+                        "markdownDescription": "The mode to use for grouping properties. This can be either `alphabetical` or `category`. `category` groups based on the category of the function.",
+                        "type": "string",
+                        "default": "alphabetical",
+                        "enum": [
+                            "alphabetical",
+                            "category"
+                        ]
+                    },
+                    "fusionautocomplete.casingMode": {
+                        "markdownDescription": "The casing mode to use for properties. This can be either `camelCase`, `snake_case` or `PascalCase`.",
+                        "type": "string",
+                        "default": "camelCase",
+                        "enum": [
+                            "camelCase",
+                            "snake_case",
+                            "PascalCase"
+                        ]
+                    },
+                    "fusionautocomplete.fusionVersion": {
+                        "markdownDescription": "The version of Fusion to use for autocomplete.",
+                        "type": "string",
+                        "default": "0.2",
+                        "enum": [
+                            "0.2",
+                            "0.3"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "lint": "eslint ./src/**/*.ts && tsc --noEmit",
+        "check": "prettier ./src -c"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.3",
+        "@types/node": "18.x",
+        "@types/node-fetch": "^2.6.9",
+        "@types/vscode": "^1.5.0",
+        "@typescript-eslint/eslint-plugin": "^6.9.0",
+        "@typescript-eslint/parser": "^6.9.0",
+        "@vscode/test-electron": "^2.3.6",
+        "eslint": "^8.52.0",
+        "glob": "^10.3.10",
+        "mocha": "^10.2.0",
+        "prettier": "^3.3.3",
+        "typescript": "^5.2.2"
+    },
+    "dependencies": {
+        "js-convert-case": "^4.2.0",
+        "node-fetch": "^2.7.0"
+    }
 }

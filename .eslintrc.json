@@ -20,7 +20,17 @@
         "curly": "warn",
         "eqeqeq": "warn",
         "no-throw-literal": "warn",
-        "semi": "off"
+        "semi": "off",
+        "no-unused-vars": "warn",
+        "no-mixed-spaces-and-tabs": "warn",
+        "no-trailing-spaces": "warn",
+        "no-multi-spaces": "warn",
+        "no-multiple-empty-lines": "warn",
+        "no-irregular-whitespace": "warn",
+        "no-unexpected-multiline": "warn",
+        "no-duplicate-case": "warn",
+        "no-unreachable": "warn",
+        "camelcase": "warn"
     },
     "ignorePatterns": [
         "out",
