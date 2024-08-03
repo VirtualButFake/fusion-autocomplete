@@ -20,7 +20,6 @@
         "curly": "warn",
         "eqeqeq": "warn",
         "no-throw-literal": "warn",
-        "semi": "off",
         "no-unused-vars": "warn",
         "no-mixed-spaces-and-tabs": "warn",
         "no-trailing-spaces": "warn",
