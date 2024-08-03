@@ -9,6 +9,9 @@ on:
     - master
     - main
 
+env:
+    CI: true
+
 jobs:
   eslint:
     name: ESLint
