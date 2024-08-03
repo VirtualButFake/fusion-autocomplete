@@ -7,7 +7,6 @@ import { FunctionParameterCompletionProvider } from './completions/functionParam
 import classDefinitions from './data/classDefinitions';
 
 const fileSelector = 'luau';
-const deliberateMistake
 
 export async function activate(context: vscode.ExtensionContext) {
     const classDefs = await classDefinitions();
