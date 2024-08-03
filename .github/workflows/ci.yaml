@@ -10,8 +10,8 @@ on:
     - main
 
 jobs:
-  CI:
-    name: Linting and Style Checking
+  eslint:
+    name: ESLint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -21,13 +21,37 @@ jobs:
     - name: Install
       run: npm install
     - name: ESLint
-      run: npx eslint ./src/**/*.ts --max-warnings=0
-    - name: TypeScript
-      run: tsc --noEmit              
+      run: npx eslint ./src/**/*.ts --max-warnings=0 --quiet --exit-on-fatal-error
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '16'
+    - name: Install
+      run: npm install
     - name: Prettier Check
       uses: rutajdash/prettier-cli-action@v1.0.2
       with:
         file_pattern: './src/**/*.ts'
         config_path: './.prettierrc'
         fail_on_error: true
+  typescript:
+    name: TypeScript Compiler Check
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '16'
+    - name: Install
+      run: npm install
+    - name: TypeScript
+      run: tsc --noEmit     
+    
+
+               
+   
             
