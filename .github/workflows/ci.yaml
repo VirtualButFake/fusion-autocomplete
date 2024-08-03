@@ -13,8 +13,8 @@ env:
     CI: true
 
 jobs:
-  eslint:
-    name: ESLint
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -24,36 +24,7 @@ jobs:
     - name: Install
       run: npm install
     - name: ESLint
-      run: npx eslint --config ./.eslintrc ./src/**/*.ts --max-warnings=0
-  prettier:
-    name: Prettier
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '16'
-    - name: Install
-      run: npm install
-    - name: Prettier Check
-      uses: rutajdash/prettier-cli-action@v1.0.2
-      with:
-        file_pattern: './src/**/*.ts'
-        config_path: './.prettierrc'
-        fail_on_error: true
-  typescript:
-    name: TypeScript Compiler Check
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '16'
-    - name: Install
-      run: npm install
-    - name: TypeScript
-      run: tsc --noEmit     
-    
+      run: npx run ci:lint
 
                
    

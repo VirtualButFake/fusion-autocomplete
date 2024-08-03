@@ -99,7 +99,9 @@
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./"
+        "watch": "tsc -watch -p ./",
+        "ci:lint": "eslint ./src --max-warnings=0 --ext .ts && tsc --noEmit",
+        "ci:format": "prettier --check ./src"
     },
     "devDependencies": {
         "@types/mocha": "^10.0.3",
